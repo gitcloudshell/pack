@@ -13,4 +13,6 @@ Now you can check the [**`Handbook`**](github.com) or run the [**`startup script
 ### **`IMG`** Images folder
 ### **`RES`** Resources folder
 
-#### **`LICENSE`** Software license
+#### **`LICENSE`** Software license file
+#### **`README.md`** Readme file
+#### **`pack.sh`** Script file

@@ -1,3 +1,4 @@
+![](https://github.com/gitcloudshell/pack/blob/master/img/logo_pack_github.png)
 # Pack
 Pack is a toolkit that allows you to take advantage of a service available to anyone who has a Google account:
 **`Google Cloudshell`**

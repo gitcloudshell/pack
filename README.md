@@ -8,6 +8,6 @@ Now you can check the [**`Handbook`**](github.com) or run the [**`startup script
 
 ## Files and folders
 ### **`TMP`** Temporal folder
-### **`IMG`**
-### **`RES`**
+### **`IMG`** Images folder
+### **`RES`** Resources folder
 

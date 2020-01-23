@@ -4,6 +4,8 @@ Pack is a toolkit that allows you to take advantage of a service available to an
 
 [**`What is Google Cloudshell?`**](github.com)
 
+Now you can check the [**`Handbook`**](github.com) or run the [**`startup script`**](github.com)
+
 ## Folders
 ### [ TMP ]
 

@@ -1,134 +1,68 @@
 
 #!/bin/bash
-
+# Demo-menu shell script
+## ----------------------------------
 # Define variables
-LSB=/usr/bin/lsb_release
-
-# Purpose: Display pause prompt
-# $1-> Message (optional)
-function pause(){
-	local message="$@"
-	[ -z $message ] && message="Press [Enter] key to continue..."
-	read -p "$message" readEnterKey
+# ----------------------------------
+EDITOR=nano
+PASSWD=/etc/passwd
+RED='\033[0;41;30m'
+STD='\033[0;0;39m'
+ 
+# ----------------------------------
+# User defined function
+# ----------------------------------
+pause(){
+  read -p "Press [Enter] key to continue..." fackEnterKey
 }
 
-# Purpose  - Display a menu on screen
-function show_menu(){
-    date
-    echo "---------------------------"
-    echo "  INFORMACION DEL SISTEMA  "
-    echo "---------------------------"
-	echo "1. Informacion del S.O."
-	echo "2. Informacion del Hostname y dns"
-	echo "3. Informacion network"
-	echo "4. Usuarios conectados"
-	echo "5. Ultimos usuarios conectados"
-	echo "6. Informacion de la memoria"
-	echo "7. Salir"
+one(){
+	echo "one() called"
+        pause
 }
-
-# Purpose - Display header message
-# $1 - message
-function write_header(){
-	local h="$@"
-	echo "---------------------------------------------------------------"
-	echo "     ${h}"
-	echo "---------------------------------------------------------------"
+ 
+# do something in two()
+two(){
+	echo "two() called"
+        pause
 }
-
-# Purpose - Get info about your operating system
-function os_info(){
-	write_header " System information "
-	echo "Operating system : $(uname)"
-	[ -x $LSB ] && $LSB -a || echo "$LSB command is not insalled (set \$LSB variable)"
-	#pause "Press [Enter] key to continue..."
-	pause
+ 
+# function to display menus
+show_menus() {
+	clear
+	echo "~~~~~~~~~~~~~~~~~~~~~"	
+	echo "  MENU-SOLOLINUX.ES  "
+	echo "~~~~~~~~~~~~~~~~~~~~~"
+	echo "1. Set Terminal"
+	echo "2. Reset Terminal"
+	echo "3. Exit"
 }
-
-# Purpose - Get info about host such as dns, IP, and hostname
-function host_info(){
-	local dnsips=$(sed -e '/^$/d' /etc/resolv.conf | awk '{if (tolower($1)=="nameserver") print $2}')
-	write_header " Hostname and DNS information "
-	echo "Hostname : $(hostname -s)"
-	echo "DNS domain : $(hostname -d)"
-	echo "Fully qualified domain name : $(hostname -f)"
-	echo "Network address (IP) :  $(hostname -i)"
-	echo "DNS name servers (DNS IP) : ${dnsips}"
-	pause
-}
-
-# Purpose - Network inferface and routing info
-function net_info(){
-	devices=$(netstat -i | cut -d" " -f1 | egrep -v "^Kernel|Iface|lo")
-	write_header " Network information "
-	echo "Total network interfaces found : $(wc -w <<<${devices})"
-
-	echo "*** IP Addresses Information ***"
-	ip -4 address show
-
-	echo "***********************"
-	echo "*** Network routing ***"
-	echo "***********************"
-	netstat -nr
-
-	echo "**************************************"
-	echo "*** Interface traffic information ***"
-	echo "**************************************"
-	netstat -i
-
-	pause 
-}
-
-# Purpose - Display a list of users currently logged on 
-#           display a list of receltly loggged in users   
-function user_info(){
-	local cmd="$1"
-	case "$cmd" in 
-		who) write_header " Who is online "; who -H; pause ;;
-		last) write_header " List of last logged in users "; last ; pause ;;
-	esac 
-}
-
-# Purpose - Display used and free memory info
-function mem_info(){
-	write_header " Free and used memory "
-	free -m
-    
-    echo "*********************************"
-	echo "*** Virtual memory statistics ***"
-    echo "*********************************"
-	vmstat
-    echo "***********************************"
-	echo "*** Top 5 memory eating process ***"
-    echo "***********************************"	
-	ps auxf | sort -nr -k 4 | head -5	
-	pause
-}
-# Purpose - Get input via the keyboard and make a decision using case..esac 
-function read_input(){
-	local c
-	read -p "Enter your choice [ 1 - 7 ] " c
-	case $c in
-		1)	os_info ;;
-		2)	host_info ;;
-		3)	net_info ;;
-		4)	user_info "who" ;;
-		5)	user_info "last" ;;
-		6)	mem_info ;;
-		7)	echo "Bye!"; exit 0 ;;
-		*)	
-			echo "Please select between 1 to 7 choice only."
-			pause
+# Lee la accion sobre el teclado y la ejecuta.
+# Invoca el () cuando el usuario selecciona 1 en el menú.
+# Invoca a los dos () cuando el usuario selecciona 2 en el menú.
+# Salir del menu cuando el usuario selecciona 3 en el menú.
+read_options(){
+	local choice
+	read -p "Enter choice [ 1 - 3] " choice
+	case $choice in
+		1) one ;;
+		2) two ;;
+		3) exit 0;;
+		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
 }
-
-# ignore CTRL+C, CTRL+Z and quit singles using the trap
+ 
+# ----------------------------------------------
+# Trap CTRL+C, CTRL+Z and quit singles
+# ----------------------------------------------
 trap '' SIGINT SIGQUIT SIGTSTP
-
-# main logic
+ 
+# -----------------------------------
+# Main logic - infinite loop
+# ------------------------------------
 while true
 do
-	clear
- 	show_menu	# display memu
- 	read_input  # wait for user input
+ 
+	show_menus
+	read_options
 done

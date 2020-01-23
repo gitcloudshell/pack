@@ -6,6 +6,6 @@ Pack is a toolkit that allows you to take advantage of a service available to an
 
 Now you can check the [**`Handbook`**](github.com) or run the [**`startup script`**](github.com)
 
-## Folders
+## Files and folders
 ### [ TMP ]
 

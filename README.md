@@ -5,7 +5,13 @@ Pack is a toolkit that allows you to take advantage of a service available to an
 
 [**`What is Google Cloudshell?`**](github.com) _please read this first_
 
+
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit, ipsum eu hendrerit pharetra, metus nisl vehicula augue, non egestas augue elit non leo. Fusce ullamcorper tellus in sem convallis, imperdiet dignissim nunc viverra. Vestibulum malesuada ac orci vitae scelerisque.
+
+![](https://github.com/gitcloudshell/pack/blob/master/img/cloudshell_icon.png)
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit, ipsum eu hendrerit pharetra, metus nisl vehicula augue, non egestas augue elit non leo. Fusce ullamcorper tellus in sem convallis, imperdiet dignissim nunc viverra. Vestibulum malesuada ac orci vitae scelerisque. Nulla eu ligula odio. Ut in metus neque.
 
 ![](https://github.com/gitcloudshell/pack/blob/master/img/bash_logo.png)
 

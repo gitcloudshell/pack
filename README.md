@@ -13,6 +13,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit, ipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit, ipsum eu hendrerit pharetra, metus nisl vehicula augue, non egestas augue elit non leo. Fusce ullamcorper tellus in sem convallis, imperdiet dignissim nunc viverra. Vestibulum malesuada ac orci vitae scelerisque. Nulla eu ligula odio. Ut in metus neque.
 
+[**`Scripts`**](github.com)
+
 ![](https://github.com/gitcloudshell/pack/blob/master/img/bash_logo.png)
 
 Now you can check the [**`Handbook`**](github.com) or run the [**`startup script`**](github.com)
